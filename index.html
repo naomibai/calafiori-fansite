@@ -142,86 +142,115 @@
     </div>
   </section>
 
-  <!-- ==================== 3. 采访（两个点击栏） ==================== -->
+  <!-- ==================== 3. 采访（视频采访 + 自动生成中文文字稿） ==================== -->
   <section class="section section-red" id="interviews">
     <div class="container">
       <div class="section-head section-head-light">
         <span class="section-no">02</span>
         <div>
           <h2 class="section-title">采访</h2>
-          <p class="section-sub">YouTube 视频链接与中文文字稿，点击下方栏位切换</p>
+          <p class="section-sub">视频采访在线观看 · 点击封面播放 · 附中文文字稿</p>
         </div>
       </div>
 
-      <!-- ★ 两个点击栏：点「YouTube 链接」看视频入口，点「中文文字稿」看采访译文 -->
+      <!-- ★ 两个点击栏：点「视频采访」看视频，点「中文文字稿」读译文 -->
       <div class="tabs">
-        <button class="tab-btn active" data-tab="video">▶ YouTube 链接</button>
+        <button class="tab-btn active" data-tab="video">▶ 视频采访</button>
         <button class="tab-btn" data-tab="text">☰ 中文文字稿</button>
       </div>
 
-      <!-- 栏位一：YouTube 链接 -->
+      <!-- 栏位一：视频采访（YouTube 式排版：封面 + 时长角标 + 标题） -->
       <div class="tab-panel active" id="panel-video">
-        <!-- ★ 每一条就是一个采访视频入口。把 href 换成真实的 YouTube 采访链接即可 -->
-        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
-          <span class="vi-icon">▶</span>
-          <div class="vi-info">
-            <h4>第一次穿上阿森纳球衣的感觉（占位标题，可改）</h4>
-            <p>阿森纳官方频道 · 2024.07（占位，可改）</p>
-          </div>
-          <span class="vi-go">观看 ↗</span>
-        </a>
-        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
-          <span class="vi-icon">▶</span>
-          <div class="vi-info">
-            <h4>意甲赛季最佳阵容专访（占位标题，可改）</h4>
-            <p>DAZN Italia · 2024.06（占位，可改）</p>
-          </div>
-          <span class="vi-go">观看 ↗</span>
-        </a>
-        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
-          <span class="vi-icon">▶</span>
-          <div class="vi-info">
-            <h4>意大利国家队赛后采访（占位标题，可改）</h4>
-            <p>国家队官方频道 · 2024.09（占位，可改）</p>
-          </div>
-          <span class="vi-go">观看 ↗</span>
-        </a>
-        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
-          <span class="vi-icon">▶</span>
-          <div class="vi-info">
-            <h4>英超首秀赛后采访（占位标题，可改）</h4>
-            <p>天空体育 · 2024.08（占位，可改）</p>
-          </div>
-          <span class="vi-go">观看 ↗</span>
-        </a>
+        <!-- ★ 如何新增视频：把 mp4 放进 assets/video/interviews/ 文件夹，封面放进
+             assets/img/covers/（与视频同名），然后告诉 Claude 一声，
+             会自动转写 + 翻译生成中文文字稿并加到网页上 -->
+        <div class="interview-videos">
+
+          <article class="video-card" data-video="assets/video/interviews/interview-1.mp4"
+                   data-poster="assets/img/covers/interview-1.jpg"
+                   data-title="第一次穿上阿森纳球衣的感觉（占位标题，可改）"
+                   data-meta="阿森纳官方 · 2024.07（占位，可改）"
+                   data-transcript="interview-1">
+            <div class="vc-cover">
+              <!-- ★ 临时封面：上传真实视频后自动替换为视频截图 -->
+              <img src="assets/img/arsenal/arsenal-01.jpg" alt="采访封面" loading="lazy">
+              <span class="vc-duration">10:24</span>
+              <span class="vc-play">▶</span>
+            </div>
+            <div class="vc-info">
+              <h4 class="vc-title">第一次穿上阿森纳球衣的感觉（占位标题，可改）</h4>
+              <p class="vc-meta">阿森纳官方 · 2024.07（占位，可改）</p>
+              <p class="vc-desc">【占位】视频简介一句话，可改。</p>
+            </div>
+          </article>
+
+          <article class="video-card" data-video="assets/video/interviews/interview-2.mp4"
+                   data-poster="assets/img/covers/interview-2.jpg"
+                   data-title="意大利国家队赛后采访（占位标题，可改）"
+                   data-meta="国家队官方 · 2024.09（占位，可改）"
+                   data-transcript="interview-2">
+            <div class="vc-cover">
+              <!-- ★ 临时封面：上传真实视频后自动替换为视频截图 -->
+              <img src="assets/img/italy/italy-01.jpg" alt="采访封面" loading="lazy">
+              <span class="vc-duration">06:38</span>
+              <span class="vc-play">▶</span>
+            </div>
+            <div class="vc-info">
+              <h4 class="vc-title">意大利国家队赛后采访（占位标题，可改）</h4>
+              <p class="vc-meta">国家队官方 · 2024.09（占位，可改）</p>
+              <p class="vc-desc">【占位】视频简介一句话，可改。</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- 上传提示 -->
+        <div class="video-hint">
+          <p><strong>🎬 上传新采访视频？</strong></p>
+          <p>把视频文件放进 <code>assets/video/interviews/</code> 文件夹，告诉我一声，我会自动为它转写并生成中文文字稿。</p>
+        </div>
       </div>
 
-      <!-- 栏位二：中文文字稿 -->
+      <!-- 栏位二：中文文字稿（每个折叠条对应上面一个视频） -->
       <div class="tab-panel" id="panel-text">
-        <!-- ★ 每个折叠条就是一篇采访的中文稿。点标题展开/收起。把占位文字换成真实文字稿即可 -->
-        <details class="transcript">
+        <!-- ★ 文字稿内容：视频上传后会自动生成并替换这里的占位文字 -->
+        <details class="transcript" id="transcript-interview-1">
           <summary>
-            <span class="ts-title">加盟阿森纳首次专访（中文文字稿）</span>
+            <span class="ts-title">第一次穿上阿森纳球衣的感觉（中文文字稿）</span>
             <span class="ts-meta">2024.07 · 阿森纳官方</span>
           </summary>
           <div class="ts-body">
-            <p>【占位文字】这里放采访的中文文字稿。把这一段替换成真实的采访翻译内容即可。</p>
-            <p>【占位文字】问：穿上阿森纳球衣的感觉如何？</p>
-            <p>【占位文字】答：……（在这里填上真实回答）</p>
+            <p>【占位文字】视频上传后，这里会自动生成完整的中文文字稿。</p>
           </div>
         </details>
-        <details class="transcript">
+        <details class="transcript" id="transcript-interview-2">
           <summary>
-            <span class="ts-title">谈职业生涯与成长（中文文字稿）</span>
-            <span class="ts-meta">2024.05 · 占位来源</span>
+            <span class="ts-title">意大利国家队赛后采访（中文文字稿）</span>
+            <span class="ts-meta">2024.09 · 国家队官方</span>
           </summary>
           <div class="ts-body">
-            <p>【占位文字】这里放第二篇采访的中文文字稿，替换方法同上。</p>
+            <p>【占位文字】视频上传后，这里会自动生成完整的中文文字稿。</p>
           </div>
         </details>
       </div>
     </div>
   </section>
+
+  <!-- ==================== 视频观看弹窗（YouTube 观看页式排版：视频在上、文字稿在下） ==================== -->
+  <div class="watch-modal" id="watch-modal">
+    <button class="wm-close" id="wm-close" aria-label="关闭">✕</button>
+    <div class="wm-body">
+      <div class="wm-player">
+        <video id="wm-video" controls playsinline preload="metadata"></video>
+      </div>
+      <div class="wm-info">
+        <h3 class="wm-title" id="wm-title"></h3>
+        <p class="wm-meta" id="wm-meta"></p>
+        <h4 class="wm-transcript-head">中文文字稿</h4>
+        <div class="wm-transcript" id="wm-transcript"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== 4. 图库（按转会时期分组的照片合集） ==================== -->
   <section class="section" id="gallery">

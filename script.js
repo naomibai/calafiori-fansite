@@ -106,3 +106,51 @@
     });
   });
 })();
+
+/* ---------- 6. 采访视频：点击卡片打开 YouTube 式观看弹窗 ---------- */
+(function () {
+  var modal = document.getElementById('watch-modal');
+  if (!modal) return;
+  var player = document.getElementById('wm-video');
+  var title = document.getElementById('wm-title');
+  var meta = document.getElementById('wm-meta');
+  var transcript = document.getElementById('wm-transcript');
+
+  function close() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    player.pause();
+    player.removeAttribute('src');
+    player.removeAttribute('poster');
+    player.load();
+  }
+
+  document.querySelectorAll('.video-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      title.textContent = card.dataset.title;
+      meta.textContent = card.dataset.meta;
+      player.poster = card.dataset.poster;
+      player.src = card.dataset.video;
+      /* 从「中文文字稿」栏位里取对应文字稿，填入弹窗 */
+      var src = document.getElementById('transcript-' + card.dataset.transcript);
+      transcript.innerHTML = src
+        ? src.querySelector('.ts-body').innerHTML
+        : '<p>（暂无文字稿，视频上传后自动生成）</p>';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.getElementById('wm-close').addEventListener('click', close);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) close(); /* 点击弹窗外区域关闭 */
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  /* 封面图缺失时隐藏 img，显示渐变底色 */
+  document.querySelectorAll('.vc-cover img').forEach(function (img) {
+    img.addEventListener('error', function () { img.style.display = 'none'; });
+  });
+})();

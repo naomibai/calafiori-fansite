@@ -455,42 +455,185 @@ section { scroll-margin-top: 84px; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* 栏位一：YouTube 链接列表 */
-.video-item {
+/* 栏位一：视频采访（YouTube 式排版：封面 + 时长角标 + 标题） */
+.interview-videos { display: flex; flex-direction: column; gap: 18px; }
+
+.video-card {
   display: flex;
   align-items: center;
   gap: 22px;
   background: var(--white);
   color: var(--ink);
-  text-decoration: none;
   border-radius: 10px;
-  padding: 20px 26px;
-  margin-bottom: 16px;
+  padding: 16px;
+  cursor: pointer;
   transition: transform .25s, box-shadow .25s;
 }
 
-.video-item:hover {
+.video-card:hover {
   transform: translateX(6px);
   box-shadow: 0 10px 28px rgba(51, 15, 17, .3);
 }
 
-.vi-icon {
+.vc-cover {
+  position: relative;
   flex-shrink: 0;
+  width: 320px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--red-dark), var(--red-deep));
+}
+
+.vc-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.video-card:hover .vc-cover img { transform: scale(1.05); }
+
+/* 时长角标（YouTube 式，右下角） */
+.vc-duration {
+  position: absolute;
+  right: 8px; bottom: 8px;
+  background: rgba(0, 0, 0, .82);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: .5px;
+}
+
+/* 播放按钮（居中） */
+.vc-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   width: 52px; height: 52px;
   border-radius: 50%;
-  background: var(--red);
+  background: rgba(0, 0, 0, .55);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
+  padding-left: 4px; /* 播放三角视觉居中 */
+  transition: background .25s;
 }
 
-.vi-info { flex: 1; }
-.vi-info h4 { font-size: 18px; font-weight: 700; letter-spacing: 1px; }
-.vi-info p { color: var(--gray); font-size: 13px; margin-top: 4px; }
+.video-card:hover .vc-play { background: var(--red); }
 
-.vi-go { color: var(--red); font-weight: 700; font-size: 15px; letter-spacing: 1px; }
+.vc-info { flex: 1; min-width: 0; }
+
+.vc-title { font-size: 19px; font-weight: 700; letter-spacing: 1px; }
+
+.vc-meta { color: var(--gray); font-size: 13px; margin-top: 5px; }
+
+.vc-desc {
+  color: var(--gray);
+  font-size: 14px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 上传提示 */
+.video-hint {
+  margin-top: 22px;
+  border: 1px dashed rgba(255, 255, 255, .4);
+  border-radius: 10px;
+  padding: 18px 24px;
+  color: rgba(255, 255, 255, .88);
+  font-size: 14px;
+}
+
+.video-hint code {
+  background: rgba(255, 255, 255, .14);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.video-hint p + p { margin-top: 6px; }
+
+/* ============================================================
+   视频观看弹窗（YouTube 观看页式排版：视频在上、文字稿在下）
+   ============================================================ */
+.watch-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  background: rgba(8, 2, 2, .94);
+  overflow-y: auto;
+  padding: 64px 24px 48px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+}
+
+.watch-modal.open { opacity: 1; visibility: visible; }
+
+.wm-body {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.wm-player {
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.wm-player video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wm-info { padding: 26px 32px 36px; }
+
+.wm-title { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+
+.wm-meta { color: var(--gray); font-size: 13px; margin-top: 6px; }
+
+.wm-transcript-head {
+  margin-top: 20px;
+  padding-left: 12px;
+  border-left: 3px solid var(--red);
+  color: var(--red-dark);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.wm-transcript {
+  margin-top: 12px;
+  color: #4A4444;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.wm-transcript p { margin-bottom: 12px; }
+
+.wm-close {
+  position: fixed;
+  top: 22px; right: 30px;
+  width: 52px; height: 52px;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 20px;
+  cursor: pointer;
+  transition: border-color .2s, transform .2s;
+}
+
+.wm-close:hover { border-color: var(--white); transform: rotate(90deg); }
 
 /* 栏位二：中文文字稿折叠条 */
 .transcript {
