@@ -34,6 +34,8 @@ body {
   color: var(--ink);
   background: var(--white);
   line-height: 1.7;
+  font-size: 16px; /* 基准字号：手机上正文保持可读 */
+  -webkit-tap-highlight-color: transparent; /* 手机点击时去掉灰色高亮 */
 }
 
 /* 页面容器：PC 端为主，宽约 1700px 居中 */
@@ -96,6 +98,9 @@ section { scroll-margin-top: 84px; }
 
 .nav-link {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* 触控友好 */
   color: rgba(51, 15, 17, .62);
   text-decoration: none;
   font-size: 16px;
@@ -104,6 +109,9 @@ section { scroll-margin-top: 84px; }
   letter-spacing: 2px;
   transition: color .2s;
 }
+
+/* 汉堡菜单按钮：桌面端隐藏，手机端显示 */
+.nav-toggle { display: none; }
 
 .nav-link:hover { color: var(--red-dark); }
 
@@ -123,6 +131,7 @@ section { scroll-margin-top: 84px; }
 .hero {
   position: relative;
   height: 100vh;
+  height: 100svh; /* 手机浏览器地址栏收起/展开时高度更稳定 */
   min-height: 680px;
   display: flex;
   align-items: center;
@@ -845,34 +854,135 @@ section { scroll-margin-top: 84px; }
 .lb-close:hover { border-color: var(--white); transform: rotate(90deg); }
 
 /* ============================================================
-   响应式兜底（主打 PC 1700px，小窗口也不崩）
+   响应式设计
+   桌面（>1024px）：基础样式，PC 优先，容器宽约 1700px
+   平板（768px - 1024px）：两列网格、收紧间距
+   手机（<768px）：单列网格、汉堡菜单、触控友好
    ============================================================ */
-@media (max-width: 1200px) {
-  .career-grid { grid-template-columns: repeat(2, 1fr); }
-  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+
+/* ---------- 平板：768px - 1024px ---------- */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .section { padding: 80px 0; }
+  .section-title { font-size: 32px; }
+  .section-no { font-size: 62px; }
+  .career-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .hero-content { max-width: 640px; }
+  .hero-media { width: 50%; }
+  .vc-cover { width: 240px; }
+  .wm-info { padding: 22px 26px 30px; }
 }
 
-@media (max-width: 760px) {
+/* ---------- 手机：小于 768px ---------- */
+@media (max-width: 767px) {
   .container { padding: 0 20px; }
-  .nav-links { overflow-x: auto; }
-  .nav-link { padding: 10px 12px; font-size: 15px; }
-  .section { padding: 70px 0; }
-  .section-no { font-size: 54px; }
-  .section-title { font-size: 26px; letter-spacing: 6px; }
-  .career-grid { grid-template-columns: 1fr; }
-  .photo-grid { grid-template-columns: 1fr; }
+  .section { padding: 60px 0; }
+  .section-head { gap: 16px; margin-bottom: 36px; }
+  .section-no { font-size: 46px; }
+  .section-title { font-size: 24px; letter-spacing: 6px; }
+  .section-sub { font-size: 14px; }
+  .career-grid { grid-template-columns: 1fr; gap: 20px; }
+  .photo-grid { grid-template-columns: 1fr; gap: 18px; }
+  .gallery-group { margin-bottom: 56px; }
+  .group-head h3 { font-size: 20px; letter-spacing: 2px; }
+  .group-years { font-size: 13px; }
+  .photo figcaption { font-size: 13px; }
+  .card-media { height: 260px; }
+  .card-body h3 { font-size: 20px; }
+  .card-body p { font-size: 15px; min-height: 0; }
 
-  /* 小屏幕上人物图占满全屏打底，文字浮在其上 */
-  .hero-media { width: 100%; opacity: .55; }
+  /* 导航：汉堡菜单 */
+  .navbar { height: 60px; }
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px; /* 触控区域 ≥44px */
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--red-dark);
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    flex-direction: column;
+    background: var(--white);
+    padding: 8px 20px 16px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 24px rgba(51, 15, 17, .12);
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 48px; /* 触控区域 ≥44px */
+    font-size: 17px;
+    color: rgba(51, 15, 17, .75);
+    border-bottom: 1px dashed var(--line);
+  }
+  .nav-link:last-child { border-bottom: none; }
+  .nav-link.active { color: var(--red-dark); }
+  .nav-link.active::after { display: none; }
+  section { scroll-margin-top: 68px; }
+  .gallery-group { scroll-margin-top: 76px; }
+
+  /* 首页：人物图全屏打底，文字浮在上方 */
+  .hero { min-height: 560px; }
+  .hero-media { width: 100%; opacity: .5; }
   .hero-overlay {
     background: linear-gradient(90deg,
-      rgba(51, 15, 17, .96) 0%,
+      rgba(51, 15, 17, .97) 0%,
       rgba(51, 15, 17, .85) 60%,
-      rgba(51, 15, 17, .55) 100%);
+      rgba(51, 15, 17, .6) 100%);
   }
   .hero-watermark { display: none; }
-  .hero-name { font-size: 56px; letter-spacing: 3px; }
-  .hero-name-cn { letter-spacing: 10px; }
-  .hero-slogan { font-size: 15px; letter-spacing: 3px; }
-  .footer-slogan { font-size: 20px; letter-spacing: 4px; }
+  .hero-content { max-width: 100%; }
+  .hero-kicker { font-size: 13px; letter-spacing: 4px; }
+  .hero-name { font-size: 52px; letter-spacing: 3px; }
+  .hero-name-cn { font-size: 20px; letter-spacing: 10px; }
+  .hero-slogan { font-size: 15px; letter-spacing: 3px; padding: 10px 20px; }
+  .hero-cta { min-height: 48px; padding: 12px 30px; font-size: 15px; }
+  .hero-stripes { height: 10px; }
+
+  /* 采访：视频卡片改为上下布局（封面在上、信息在下） */
+  .tabs { gap: 10px; margin-bottom: 26px; }
+  .tab-btn { height: 56px; font-size: 16px; letter-spacing: 2px; }
+  .interview-videos { gap: 14px; }
+  .video-card { flex-direction: column; align-items: stretch; gap: 14px; padding: 14px; }
+  .vc-cover { width: 100%; }
+  .vc-title { font-size: 17px; }
+  .vc-meta { font-size: 13px; }
+  .vc-desc { font-size: 14px; white-space: normal; }
+  .transcript summary { padding: 16px 18px; gap: 10px; }
+  .ts-title { font-size: 15px; }
+  .ts-meta { font-size: 12px; white-space: normal; }
+  .ts-body { padding: 0 18px 20px 36px; font-size: 15px; }
+  .video-hint { padding: 14px 16px; font-size: 13px; }
+
+  /* 弹窗与灯箱 */
+  .watch-modal { padding: 64px 12px 32px; }
+  .wm-info { padding: 18px 18px 26px; }
+  .wm-title { font-size: 18px; }
+  .wm-transcript { font-size: 15px; }
+  .wm-close { top: 14px; right: 16px; width: 44px; height: 44px; }
+  .lightbox { padding: 20px; }
+  .lb-close { top: 14px; right: 16px; width: 44px; height: 44px; }
+  .lb-caption { font-size: 14px; }
+
+  /* 页脚 */
+  .footer { padding: 50px 20px; }
+  .footer-slogan { font-size: 18px; letter-spacing: 4px; }
+  .footer-credit { font-size: 12px; }
+}
+
+/* ---------- 手机小屏微调：小于 380px ---------- */
+@media (max-width: 379px) {
+  .hero-name { font-size: 44px; }
+  .logo-text { letter-spacing: 2px; }
 }

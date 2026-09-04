@@ -97,7 +97,27 @@
   });
 })();
 
-/* ---------- 5. 图片加载失败：显示占位块（事件委托，动态图也生效） ---------- */
+/* ---------- 5. 移动端汉堡菜单 ---------- */
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  /* 点击菜单项后自动收起 */
+  links.addEventListener('click', function (e) {
+    if (e.target.closest('a')) {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+
+/* ---------- 6. 图片加载失败：显示占位块（事件委托，动态图也生效） ---------- */
 (function () {
   document.addEventListener('error', function (e) {
     var img = e.target;
