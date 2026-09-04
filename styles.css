@@ -142,7 +142,7 @@ section { scroll-margin-top: 84px; }
   position: absolute;
   inset: 0;
   /* center top：照片顶部对齐容器顶部，保证人物脸部可见（竖构图全身照） */
-  background: url("https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=1600") center top / cover no-repeat;
+  background: url("assets/img/arsenal/arsenal-01.jpg") center top / cover no-repeat;
   opacity: 0;
   transition: opacity .8s;
 }
