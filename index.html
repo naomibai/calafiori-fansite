@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riccardo Calafiori | 卡拉菲奥里球迷站</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==================== 顶部导航栏 ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <!-- ★ LOGO 文字可随意修改 -->
+      <a href="#hero" class="logo">
+        <span class="logo-num">33</span>
+        <span class="logo-text">CALAFIORI</span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link active">首页</a>
+        <a href="#career" class="nav-link">个人经历</a>
+        <a href="#interviews" class="nav-link">采访</a>
+        <a href="#gallery" class="nav-link">图库</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== 1. 全屏首页 Hero ==================== -->
+  <section class="hero" id="hero">
+    <!-- ★ 视频背景：把你的视频文件改名为 hero.mp4，放进 assets/video/ 文件夹即可自动播放 -->
+    <!--    没有视频文件时，会自动显示下面的红白海报背景，不影响浏览 -->
+    <div class="hero-fallback" id="hero-fallback"></div>
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=1600">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <p class="hero-kicker">意大利国脚 · 阿森纳 33 号 · 左后卫</p>
+      <!-- ★ 下面三行（名字、中文名、标语）的文字都可以随意修改 -->
+      <h1 class="hero-name">RICCARDO<span class="outline">CALAFIORI</span></h1>
+      <p class="hero-name-cn">卡拉菲奥里</p>
+      <p class="hero-slogan">钢铁防线 · 红白之魂</p>
+      <a href="#career" class="hero-cta">走进他的故事 ↓</a>
+    </div>
+    <div class="hero-stripes"></div>
+  </section>
+
+  <!-- ==================== 2. 个人经历（按转会时期分类） ==================== -->
+  <section class="section" id="career">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-no">01</span>
+        <div>
+          <h2 class="section-title">个人经历</h2>
+          <p class="section-sub">按转会时期分类 · 点击卡片直达对应时期的照片合集</p>
+        </div>
+      </div>
+
+      <div class="career-grid">
+        <!-- ★ 每个时期一张卡片；点击卡片会跳到图库中对应的照片合集。文字、年份都可以改 -->
+        <a href="#gallery-roma" class="career-card">
+          <div class="card-media">
+            <div class="photo-missing">
+              <span class="pm-letter">R</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/roma-1.jpg</span>
+            </div>
+            <span class="card-badge">2010 – 2022</span>
+            <div class="card-media-overlay"><span class="card-club-en">AS ROMA</span></div>
+          </div>
+          <div class="card-body">
+            <h3>罗马青训</h3>
+            <p>8岁进入罗马青训营，成长为意大利最有潜力的后防新星，并完成一线队首秀。</p>
+            <span class="card-more">查看照片合集 →</span>
+          </div>
+        </a>
+
+        <a href="#gallery-basel" class="career-card">
+          <div class="card-media">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/basel-1.jpg</span>
+            </div>
+            <span class="card-badge">2022 – 2023</span>
+            <div class="card-media-overlay"><span class="card-club-en">FC BASEL</span></div>
+          </div>
+          <div class="card-body">
+            <h3>巴塞尔</h3>
+            <p>2022年转会瑞士超巴塞尔，代表球队出战欧战赛场，逐渐进入主流视野。</p>
+            <span class="card-more">查看照片合集 →</span>
+          </div>
+        </a>
+
+        <a href="#gallery-bologna" class="career-card">
+          <div class="card-media">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Celebrazioni%20Bologna%202024.jpg?width=800"
+                 alt="卡拉菲奥里 · 博洛尼亚时期" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/bologna-1.jpg</span>
+            </div>
+            <span class="card-badge">2023 – 2024</span>
+            <div class="card-media-overlay"><span class="card-club-en">BOLOGNA FC</span></div>
+          </div>
+          <div class="card-body">
+            <h3>博洛尼亚</h3>
+            <p>2023年加盟博洛尼亚，交出惊艳赛季，入选意甲赛季最佳阵容。</p>
+            <span class="card-more">查看照片合集 →</span>
+          </div>
+        </a>
+
+        <a href="#gallery-arsenal" class="career-card">
+          <div class="card-media">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2).jpg?width=800"
+                 alt="卡拉菲奥里 · 阿森纳时期" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-1.jpg</span>
+            </div>
+            <span class="card-badge">2024 – 至今</span>
+            <div class="card-media-overlay"><span class="card-club-en">ARSENAL</span></div>
+          </div>
+          <div class="card-body">
+            <h3>阿森纳</h3>
+            <p>2024年登陆英超加盟阿森纳，身披33号战袍，成为红白防线的重要一员。</p>
+            <span class="card-more">查看照片合集 →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. 采访（两个点击栏） ==================== -->
+  <section class="section section-red" id="interviews">
+    <div class="container">
+      <div class="section-head section-head-light">
+        <span class="section-no">02</span>
+        <div>
+          <h2 class="section-title">采访</h2>
+          <p class="section-sub">YouTube 视频链接与中文文字稿，点击下方栏位切换</p>
+        </div>
+      </div>
+
+      <!-- ★ 两个点击栏：点「YouTube 链接」看视频入口，点「中文文字稿」看采访译文 -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="video">▶ YouTube 链接</button>
+        <button class="tab-btn" data-tab="text">☰ 中文文字稿</button>
+      </div>
+
+      <!-- 栏位一：YouTube 链接 -->
+      <div class="tab-panel active" id="panel-video">
+        <!-- ★ 每一条就是一个采访视频入口。把 href 换成真实的 YouTube 采访链接即可 -->
+        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
+          <span class="vi-icon">▶</span>
+          <div class="vi-info">
+            <h4>第一次穿上阿森纳球衣的感觉（占位标题，可改）</h4>
+            <p>阿森纳官方频道 · 2024.07（占位，可改）</p>
+          </div>
+          <span class="vi-go">观看 ↗</span>
+        </a>
+        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
+          <span class="vi-icon">▶</span>
+          <div class="vi-info">
+            <h4>意甲赛季最佳阵容专访（占位标题，可改）</h4>
+            <p>DAZN Italia · 2024.06（占位，可改）</p>
+          </div>
+          <span class="vi-go">观看 ↗</span>
+        </a>
+        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
+          <span class="vi-icon">▶</span>
+          <div class="vi-info">
+            <h4>意大利国家队赛后采访（占位标题，可改）</h4>
+            <p>国家队官方频道 · 2024.09（占位，可改）</p>
+          </div>
+          <span class="vi-go">观看 ↗</span>
+        </a>
+        <a class="video-item" href="https://www.youtube.com/results?search_query=Riccardo+Calafiori+interview" target="_blank" rel="noopener">
+          <span class="vi-icon">▶</span>
+          <div class="vi-info">
+            <h4>英超首秀赛后采访（占位标题，可改）</h4>
+            <p>天空体育 · 2024.08（占位，可改）</p>
+          </div>
+          <span class="vi-go">观看 ↗</span>
+        </a>
+      </div>
+
+      <!-- 栏位二：中文文字稿 -->
+      <div class="tab-panel" id="panel-text">
+        <!-- ★ 每个折叠条就是一篇采访的中文稿。点标题展开/收起。把占位文字换成真实文字稿即可 -->
+        <details class="transcript">
+          <summary>
+            <span class="ts-title">加盟阿森纳首次专访（中文文字稿）</span>
+            <span class="ts-meta">2024.07 · 阿森纳官方</span>
+          </summary>
+          <div class="ts-body">
+            <p>【占位文字】这里放采访的中文文字稿。把这一段替换成真实的采访翻译内容即可。</p>
+            <p>【占位文字】问：穿上阿森纳球衣的感觉如何？</p>
+            <p>【占位文字】答：……（在这里填上真实回答）</p>
+          </div>
+        </details>
+        <details class="transcript">
+          <summary>
+            <span class="ts-title">谈职业生涯与成长（中文文字稿）</span>
+            <span class="ts-meta">2024.05 · 占位来源</span>
+          </summary>
+          <div class="ts-body">
+            <p>【占位文字】这里放第二篇采访的中文文字稿，替换方法同上。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. 图库（按转会时期分组的照片合集） ==================== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-no">03</span>
+        <div>
+          <h2 class="section-title">图库</h2>
+          <p class="section-sub">按转会时期分组的照片合集 · 点击照片可放大查看</p>
+        </div>
+      </div>
+
+      <!-- ★ 罗马时期（锚点 id="gallery-roma"，对应上面「罗马青训」卡片） -->
+      <div class="gallery-group" id="gallery-roma">
+        <div class="group-head">
+          <h3>罗马青训时期 <span class="group-years">2010 – 2022</span></h3>
+        </div>
+        <div class="photo-grid">
+          <!-- ★ 把图片放进 assets/img/ 文件夹，再把 src 改成 assets/img/你的文件名.jpg -->
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">R</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/roma-1.jpg</span>
+            </div>
+            <figcaption>罗马时期 · 待补充</figcaption>
+          </figure>
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">R</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/roma-2.jpg</span>
+            </div>
+            <figcaption>罗马时期 · 待补充</figcaption>
+          </figure>
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">R</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/roma-3.jpg</span>
+            </div>
+            <figcaption>罗马时期 · 待补充</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- ★ 巴塞尔时期（锚点 id="gallery-basel"） -->
+      <div class="gallery-group" id="gallery-basel">
+        <div class="group-head">
+          <h3>巴塞尔时期 <span class="group-years">2022 – 2023</span></h3>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/basel-1.jpg</span>
+            </div>
+            <figcaption>巴塞尔时期 · 待补充</figcaption>
+          </figure>
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/basel-2.jpg</span>
+            </div>
+            <figcaption>巴塞尔时期 · 待补充</figcaption>
+          </figure>
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/basel-3.jpg</span>
+            </div>
+            <figcaption>巴塞尔时期 · 待补充</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- ★ 博洛尼亚时期（锚点 id="gallery-bologna"） -->
+      <div class="gallery-group" id="gallery-bologna">
+        <div class="group-head">
+          <h3>博洛尼亚时期 <span class="group-years">2023 – 2024</span></h3>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Riccardo%20Calafiori.jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Riccardo%20Calafiori.jpg?width=1600"
+                 data-caption="博洛尼亚时期" alt="卡拉菲奥里 · 博洛尼亚时期" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/bologna-2.jpg</span>
+            </div>
+            <figcaption>博洛尼亚时期</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Celebrazioni%20Bologna%202024.jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/Celebrazioni%20Bologna%202024.jpg?width=1600"
+                 data-caption="2024 博洛尼亚欧冠资格庆典" alt="2024 博洛尼亚庆典" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/bologna-3.jpg</span>
+            </div>
+            <figcaption>2024 欧冠资格庆典</figcaption>
+          </figure>
+          <figure class="photo photo-empty">
+            <div class="photo-missing">
+              <span class="pm-letter">B</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/bologna-4.jpg</span>
+            </div>
+            <figcaption>博洛尼亚时期 · 待补充</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- ★ 阿森纳时期（锚点 id="gallery-arsenal"） -->
+      <div class="gallery-group" id="gallery-arsenal">
+        <div class="group-head">
+          <h3>阿森纳时期 <span class="group-years">2024 – 至今</span></h3>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2).jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2).jpg?width=1600"
+                 data-caption="2024 酋长杯" alt="卡拉菲奥里 · 2024 酋长杯" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-1.jpg</span>
+            </div>
+            <figcaption>2024 酋长杯</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2)%20(cropped).jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2)%20(cropped).jpg?width=1600"
+                 data-caption="2024 酋长杯" alt="卡拉菲奥里 · 2024 酋长杯" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-2.jpg</span>
+            </div>
+            <figcaption>2024 酋长杯</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2)%20(cropped2).jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%20(2)%20(cropped2).jpg?width=1600"
+                 data-caption="2024 酋长杯" alt="卡拉菲奥里 · 2024 酋长杯" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-3.jpg</span>
+            </div>
+            <figcaption>2024 酋长杯</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%2A.jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Emirates%20Cup%20-%20Riccardo%20Calafiori%2A.jpg?width=1600"
+                 data-caption="2024 酋长杯" alt="卡拉菲奥里 · 2024 酋长杯" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-4.jpg</span>
+            </div>
+            <figcaption>2024 酋长杯</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20arsenal%20crystal%20palace%20epl%20champions%202026.jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/1%20arsenal%20crystal%20palace%20epl%20champions%202026.jpg?width=1600"
+                 data-caption="2026 英超夺冠庆典" alt="卡拉菲奥里 · 2026 英超夺冠庆典" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-5.jpg</span>
+            </div>
+            <figcaption>2026 英超夺冠庆典</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=800"
+                 data-full="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=1600"
+                 data-caption="阿森纳时期 · 2026" alt="卡拉菲奥里 · 2026" loading="lazy">
+            <div class="photo-missing">
+              <span class="pm-letter">A</span>
+              <span class="pm-text">照片待补充</span>
+              <span class="pm-path">assets/img/arsenal-6.jpg</span>
+            </div>
+            <figcaption>阿森纳时期 · 2026</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. 页脚 ==================== -->
+  <footer class="footer">
+    <!-- ★ 底部标语（按你的要求），措辞可改 -->
+    <p class="footer-slogan">仅供粉丝交流使用，不允许商用</p>
+    <p class="footer-credit">
+      本站为球迷自制非官方页面 · 占位图片来源
+      <a href="https://commons.wikimedia.org/wiki/Category:Riccardo_Calafiori" target="_blank" rel="noopener">Wikimedia Commons</a>
+      （CC 许可）· 后续将替换为自备素材
+    </p>
+  </footer>
+
+  <!-- ==================== 灯箱（点击图库照片后放大显示） ==================== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="关闭">✕</button>
+    <img class="lb-img" id="lb-img" src="" alt="放大图片">
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
