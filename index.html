@@ -28,13 +28,18 @@
   <!-- ==================== 1. 全屏首页 Hero ==================== -->
   <section class="hero" id="hero">
     <!-- ★ 视频背景：把你的视频文件改名为 hero.mp4，放进 assets/video/ 文件夹即可自动播放 -->
-    <!--    没有视频文件时，会自动显示下面的红白海报背景，不影响浏览 -->
-    <div class="hero-fallback" id="hero-fallback"></div>
-    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto"
-           poster="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=1600">
-      <source src="assets/video/hero.mp4" type="video/mp4">
-    </video>
+    <!--    没有视频文件时，会自动显示右侧的海报照片，不影响浏览 -->
+    <div class="hero-media">
+      <div class="hero-fallback" id="hero-fallback"></div>
+      <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto"
+             poster="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riccardo%20Calafiori%202026.jpg?width=1600">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <!-- 左侧文字区与右侧人物之间的柔和过渡 -->
     <div class="hero-overlay"></div>
+    <!-- 背景装饰：巨大的 33 号水印 -->
+    <div class="hero-watermark" aria-hidden="true">33</div>
 
     <div class="container hero-content">
       <p class="hero-kicker">意大利国脚 · 阿森纳 33 号 · 左后卫</p>
