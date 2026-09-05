@@ -126,26 +126,21 @@ section { scroll-margin-top: 84px; }
 }
 
 /* ============================================================
-   1. 全屏 Hero：左侧文字区 + 右侧人物主体
+   1. 全屏 Hero：人物全屏成为焦点，超大标题锚定底部（移动端优先设计）
    ============================================================ */
 .hero {
   position: relative;
   height: 100vh;
   height: 100svh; /* 手机浏览器地址栏收起/展开时高度更稳定 */
-  min-height: 680px;
+  min-height: 620px;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* 文字区贴底，把上方画面留给人物 */
   overflow: hidden;
-  /* 左侧深色底，衬托文字 */
-  background: linear-gradient(135deg, var(--red-deep) 0%, var(--red-dark) 100%);
+  background: linear-gradient(160deg, var(--red-deep) 0%, var(--red-dark) 100%);
 }
 
-/* 右侧媒体区：人物照片 / 视频占据整块右半屏，突出人物主体 */
-.hero-media {
-  position: absolute;
-  top: 0; bottom: 0; right: 0;
-  width: 55%;
-}
+/* 人物媒体区：全屏铺满，卡拉菲奥里成为视觉焦点 */
+.hero-media { position: absolute; inset: 0; }
 
 .hero-fallback {
   position: absolute;
@@ -153,7 +148,7 @@ section { scroll-margin-top: 84px; }
   /* center top：照片顶部对齐容器顶部，保证人物脸部可见（竖构图全身照） */
   background: url("assets/img/arsenal/arsenal-01.jpg") center top / cover no-repeat;
   opacity: 0;
-  transition: opacity .8s;
+  transition: opacity 1s;
 }
 
 /* 视频缺失时由 JS 加上 .show-fallback，让海报照片淡入 */
@@ -165,20 +160,22 @@ section { scroll-margin-top: 84px; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
-/* 左深右透的柔和过渡，让文字清晰、人物可见（缩短暗区，人物更通透） */
+/* 底部向上渐变的遮罩：上方人物清晰可见，下方文字区可读 */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg,
-    var(--red-deep) 0%,
-    rgba(51, 15, 17, .95) 30%,
-    rgba(51, 15, 17, .5) 46%,
-    rgba(51, 15, 17, 0) 62%);
+  background: linear-gradient(180deg,
+    rgba(51, 15, 17, .16) 0%,
+    rgba(51, 15, 17, 0) 26%,
+    rgba(51, 15, 17, 0) 46%,
+    rgba(51, 15, 17, .72) 68%,
+    var(--red-deep) 97%);
 }
 
-/* 巨大的 33 号水印装饰 */
+/* 巨大的 33 号水印装饰（手机端隐藏） */
 .hero-watermark {
   position: absolute;
   z-index: 1;
@@ -201,56 +198,66 @@ section { scroll-margin-top: 84px; }
 .hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
   color: var(--white);
-  max-width: 860px;
+  padding-bottom: 96px;
 }
 
+/* 小字名字前缀，金色点缀 */
 .hero-kicker {
-  font-size: 15px;
-  letter-spacing: 6px;
-  color: rgba(255, 255, 255, .7);
-  margin-bottom: 22px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 40px);
+  letter-spacing: 8px;
+  color: #C9A96A;
+  margin-bottom: 6px;
 }
 
+/* 超大主标题：至少 10vw，占满屏幕宽度 */
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(86px, 9.5vw, 168px);
+  font-size: clamp(76px, 13.5vw, 260px);
   line-height: .92;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   font-weight: 400;
-  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 8px 48px rgba(0, 0, 0, .5);
 }
 
-/* 第二行名字做成空心描边字，增强设计感 */
-.hero-name .outline { display: block; color: var(--white); }
-@supports (-webkit-text-stroke: 2px rgba(255, 255, 255, .9)) {
-  .hero-name .outline { color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, .9); }
+/* 有力量感的英文副标题，金色 */
+.hero-sub-en {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 34px);
+  letter-spacing: 6px;
+  color: #C9A96A;
+  margin-top: 10px;
 }
 
 .hero-name-cn {
-  font-size: 24px;
+  font-size: clamp(13px, 1.4vw, 22px);
   font-weight: 300;
-  letter-spacing: 18px;
-  margin-top: 18px;
-  color: rgba(255, 255, 255, .88);
+  letter-spacing: 14px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, .85);
 }
 
+/* 中文标语（仅桌面显示，手机端保持极简） */
 .hero-slogan {
   display: inline-block;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  letter-spacing: 6px;
-  margin-top: 30px;
-  padding: 12px 30px;
-  border: 1px solid rgba(255, 255, 255, .4);
+  letter-spacing: 5px;
+  margin-top: 26px;
+  padding: 9px 24px;
+  border: 1px solid rgba(255, 255, 255, .35);
   background: rgba(255, 255, 255, .05);
   color: var(--white);
 }
 
 .hero-cta {
   display: inline-block;
-  margin-top: 42px;
-  padding: 14px 38px;
+  margin-top: 28px;
+  min-height: 48px;
+  padding: 13px 36px;
   border: 1px solid rgba(255, 255, 255, .75);
   color: var(--white);
   text-decoration: none;
@@ -262,6 +269,16 @@ section { scroll-margin-top: 84px; }
 
 .hero-cta:hover { background: var(--white); color: var(--red-dark); }
 
+/* 底部角落的小字信息（不抢主体） */
+.hero-info {
+  position: absolute;
+  z-index: 2;
+  left: 48px; bottom: 26px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, .55);
+}
+
 /* Hero 底部的红白斜条纹，呼应球衣配色（低饱和处理） */
 .hero-stripes {
   position: absolute;
@@ -269,6 +286,30 @@ section { scroll-margin-top: 84px; }
   height: 12px;
   background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .85) 0 16px, var(--red) 16px 32px);
   z-index: 3;
+}
+
+/* 入场动画：文字从底部滑入 + 淡入（依次出现） */
+.hero-kicker, .hero-name, .hero-sub-en, .hero-name-cn, .hero-slogan, .hero-cta {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: hero-rise .9s ease-out forwards;
+}
+.hero-name { animation-delay: .12s; }
+.hero-sub-en { animation-delay: .3s; }
+.hero-name-cn { animation-delay: .42s; }
+.hero-slogan, .hero-cta { animation-delay: .55s; }
+
+@keyframes hero-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 系统开启「减少动态效果」时，禁用入场动画 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-kicker, .hero-name, .hero-sub-en, .hero-name-cn, .hero-slogan, .hero-cta {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 /* ============================================================
@@ -868,8 +909,7 @@ section { scroll-margin-top: 84px; }
   .section-no { font-size: 62px; }
   .career-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .hero-content { max-width: 640px; }
-  .hero-media { width: 50%; }
+  .hero-content { padding-bottom: 84px; }
   .vc-cover { width: 240px; }
   .wm-info { padding: 22px 26px 30px; }
 }
@@ -932,23 +972,18 @@ section { scroll-margin-top: 84px; }
   section { scroll-margin-top: 68px; }
   .gallery-group { scroll-margin-top: 76px; }
 
-  /* 首页：人物图全屏打底，文字浮在上方 */
+  /* 首页：人物全屏打底，超大标题贴底（移动端优先设计） */
   .hero { min-height: 560px; }
-  .hero-media { width: 100%; opacity: .5; }
-  .hero-overlay {
-    background: linear-gradient(90deg,
-      rgba(51, 15, 17, .97) 0%,
-      rgba(51, 15, 17, .85) 60%,
-      rgba(51, 15, 17, .6) 100%);
-  }
   .hero-watermark { display: none; }
-  .hero-content { max-width: 100%; }
-  .hero-kicker { font-size: 13px; letter-spacing: 4px; }
-  .hero-name { font-size: 52px; letter-spacing: 3px; }
-  .hero-name-cn { font-size: 20px; letter-spacing: 10px; }
-  .hero-slogan { font-size: 15px; letter-spacing: 3px; padding: 10px 20px; }
-  .hero-cta { min-height: 48px; padding: 12px 30px; font-size: 15px; }
-  .hero-stripes { height: 10px; }
+  .hero-content { padding-bottom: 74px; }
+  .hero-kicker { font-size: 20px; letter-spacing: 6px; }
+  .hero-name { font-size: 17vw; letter-spacing: 1px; } /* 满屏宽的超大标题 */
+  .hero-sub-en { font-size: 16px; letter-spacing: 4px; margin-top: 6px; }
+  .hero-name-cn { font-size: 13px; letter-spacing: 8px; margin-top: 8px; }
+  .hero-slogan { display: none; } /* 极简设计：手机端隐藏标语 */
+  .hero-cta { margin-top: 20px; min-height: 48px; padding: 12px 28px; font-size: 14px; letter-spacing: 3px; }
+  .hero-info { left: 16px; bottom: 18px; font-size: 10px; letter-spacing: 2px; }
+  .hero-stripes { height: 8px; }
 
   /* 采访：视频卡片改为上下布局（封面在上、信息在下） */
   .tabs { gap: 10px; margin-bottom: 26px; }
@@ -983,6 +1018,6 @@ section { scroll-margin-top: 84px; }
 
 /* ---------- 手机小屏微调：小于 380px ---------- */
 @media (max-width: 379px) {
-  .hero-name { font-size: 44px; }
+  .hero-name { font-size: 16vw; }
   .logo-text { letter-spacing: 2px; }
 }
