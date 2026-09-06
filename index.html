@@ -18,8 +18,8 @@
       </a>
       <nav class="nav-links" id="nav-links">
         <a href="#hero" class="nav-link active">首页</a>
-        <a href="#career" class="nav-link">个人经历</a>
-        <a href="#interviews" class="nav-link">采访</a>
+        <a href="#schedule" class="nav-link">赛程</a>
+        <a href="#interviews" class="nav-link">视频</a>
         <a href="#gallery" class="nav-link">图库</a>
       </nav>
       <!-- 手机端汉堡菜单按钮（桌面端隐藏） -->
@@ -27,7 +27,7 @@
     </div>
   </header>
 
-  <!-- ==================== 1. 首页 Hero（奶油底可爱手写风） ==================== -->
+  <!-- ==================== 1. 首页 Hero（白底手帐拼贴风） ==================== -->
   <section class="hero" id="hero">
     <!-- 可爱风装饰元素（大虚线圆、红点、星星爱心） -->
     <div class="hero-deco" aria-hidden="true">
@@ -63,105 +63,170 @@
         </div>
       </div>
 
-      <!-- 右侧：AI 抠图人物切片 + 身高标尺 -->
-      <div class="hero-figure">
-        <!-- ★ 人物切片图：AI 抠图生成，有两个候选：
-             calafiori-cutout.webp（当前使用）和 calafiori-cutout-b.webp（备选），
-             想换就把上面文件名改成另一个；想用新图就放进 assets/img/ 后改 src -->
-        <img class="hero-cutout" src="assets/img/calafiori-cutout.webp" alt="卡拉菲奥里人物立牌">
-        <div class="height-ruler" aria-hidden="true">
-          <span class="hr-text">1.88m</span>
+      <!-- 右侧：拼贴区（主人物切片 + 拍立得 + 意大利国旗 + 徽章 + 迷你切片） -->
+      <div class="hero-collage">
+        <!-- ★ 主人物切片（AI 抠图，有两个候选：calafiori-cutout.webp 与 -b.webp，改 src 即可切换） -->
+        <div class="collage-main">
+          <img class="hero-cutout" src="assets/img/calafiori-cutout.webp" alt="卡拉菲奥里人物立牌">
+          <div class="height-ruler" aria-hidden="true"><span class="hr-text">1.88m</span></div>
         </div>
+
+        <!-- 拍立得小照片 -->
+        <div class="collage-polaroid">
+          <img src="assets/img/arsenal/arsenal-02.jpg" alt="阿森纳时期" loading="lazy">
+          <span class="pol-caption">arsenal ♥</span>
+        </div>
+
+        <!-- 意大利国旗贴纸 -->
+        <div class="collage-flag" aria-hidden="true"><span class="flag-it"></span></div>
+
+        <!-- 俱乐部徽章贴纸 -->
+        <div class="collage-badges" aria-hidden="true">
+          <img class="badge-sticker badge-roma" src="assets/img/badges/roma.png" alt="AS Roma">
+          <img class="badge-sticker badge-basel" src="assets/img/badges/basel.png" alt="FC Basel">
+          <img class="badge-sticker badge-bologna" src="assets/img/badges/bologna.png" alt="Bologna">
+          <img class="badge-sticker badge-arsenal" src="assets/img/badges/arsenal.png" alt="Arsenal">
+        </div>
+
+        <!-- 迷你人物切片贴纸 -->
+        <img class="collage-mini mini-italy" src="assets/img/mini-italy.webp" alt="意大利国家队" loading="lazy">
+        <img class="collage-mini mini-bologna" src="assets/img/mini-bologna.webp" alt="博洛尼亚时期" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ==================== 2. 个人经历（按转会时期分类） ==================== -->
-  <section class="section" id="career">
+  <!-- ==================== 2. 赛程（阿森纳 + 意大利国家队） ==================== -->
+  <section class="section" id="schedule">
     <div class="container">
       <div class="section-head">
         <span class="section-no">01</span>
         <div>
-          <h2 class="section-title">个人经历</h2>
-          <p class="section-sub">按转会时期分类 · 点击卡片直达对应时期的照片合集</p>
+          <h2 class="section-title">赛程</h2>
+          <p class="section-sub">近期赛果与未来赛程 · 比分更新后随时可改</p>
         </div>
       </div>
 
-      <div class="career-grid">
-        <!-- ★ 每个时期一张卡片；点击卡片会跳到图库中对应的照片合集。文字、年份都可以改 -->
-        <a href="#gallery-roma" class="career-card">
-          <div class="card-media">
-            <img src="assets/img/roma/roma-01.jpg" alt="卡拉菲奥里 · 罗马青训时期" loading="lazy">
-            <div class="photo-missing">
-              <span class="pm-letter">R</span>
-              <span class="pm-text">照片待补充</span>
-              <span class="pm-path">assets/img/roma/roma-01.jpg</span>
-            </div>
-            <span class="card-badge">2010 – 2022</span>
-            <div class="card-media-overlay"><span class="card-club-en">AS ROMA</span></div>
-          </div>
-          <div class="card-body">
-            <h3>罗马青训</h3>
-            <p>8岁进入罗马青训营，成长为意大利最有潜力的后防新星，并完成一线队首秀。</p>
-            <span class="card-more">查看照片合集 →</span>
-          </div>
-        </a>
+      <!-- ★ 比赛数据：改比分/日期直接编辑下面文字即可；新增比赛照样子复制一行 -->
+      <div class="schedule-grid">
 
-        <a href="#gallery-basel" class="career-card">
-          <div class="card-media">
-            <img src="assets/img/basel/basel-01.jpg" alt="卡拉菲奥里 · 巴塞尔时期" loading="lazy">
-            <div class="photo-missing">
-              <span class="pm-letter">B</span>
-              <span class="pm-text">照片待补充</span>
-              <span class="pm-path">assets/img/basel/basel-01.jpg</span>
-            </div>
-            <span class="card-badge">2022 – 2023</span>
-            <div class="card-media-overlay"><span class="card-club-en">FC BASEL</span></div>
+        <!-- 阿森纳 -->
+        <div class="sched-block">
+          <div class="sched-head sched-arsenal">
+            <img src="assets/img/badges/arsenal.png" alt="阿森纳徽章">
+            <span>阿森纳 · 英超</span>
           </div>
-          <div class="card-body">
-            <h3>巴塞尔</h3>
-            <p>2022年转会瑞士超巴塞尔，代表球队出战欧战赛场，逐渐进入主流视野。</p>
-            <span class="card-more">查看照片合集 →</span>
-          </div>
-        </a>
 
-        <a href="#gallery-bologna" class="career-card">
-          <div class="card-media">
-            <img src="assets/img/bologna/bologna-01.jpg"
-                 alt="卡拉菲奥里 · 博洛尼亚时期" loading="lazy">
-            <div class="photo-missing">
-              <span class="pm-letter">B</span>
-              <span class="pm-text">照片待补充</span>
-              <span class="pm-path">assets/img/bologna/bologna-01.jpg</span>
+          <!-- 已赛 -->
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">08.21</span>
+              <span class="mc-comp">英超 · 主场</span>
             </div>
-            <span class="card-badge">2023 – 2024</span>
-            <div class="card-media-overlay"><span class="card-club-en">BOLOGNA FC</span></div>
+            <div class="mc-mid">
+              <span class="mc-team">阿森纳</span>
+              <span class="mc-score">3 - 0</span>
+              <span class="mc-team">考文垂</span>
+            </div>
+            <span class="mc-badge mc-win">胜</span>
           </div>
-          <div class="card-body">
-            <h3>博洛尼亚</h3>
-            <p>2023年加盟博洛尼亚，交出惊艳赛季，入选意甲赛季最佳阵容。</p>
-            <span class="card-more">查看照片合集 →</span>
-          </div>
-        </a>
 
-        <a href="#gallery-arsenal" class="career-card">
-          <div class="card-media">
-            <img src="assets/img/arsenal/arsenal-01.jpg"
-                 alt="卡拉菲奥里 · 阿森纳时期" loading="lazy">
-            <div class="photo-missing">
-              <span class="pm-letter">A</span>
-              <span class="pm-text">照片待补充</span>
-              <span class="pm-path">assets/img/arsenal/arsenal-01.jpg</span>
+          <!-- 未赛 -->
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">08.31</span>
+              <span class="mc-comp">英超 · 客场</span>
             </div>
-            <span class="card-badge">2024 – 至今</span>
-            <div class="card-media-overlay"><span class="card-club-en">ARSENAL</span></div>
+            <div class="mc-mid">
+              <span class="mc-team">阿斯顿维拉</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">阿森纳</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
           </div>
-          <div class="card-body">
-            <h3>阿森纳</h3>
-            <p>2024年登陆英超加盟阿森纳，身披33号战袍，成为红白防线的重要一员。</p>
-            <span class="card-more">查看照片合集 →</span>
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">09.06</span>
+              <span class="mc-comp">英超 · 主场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">阿森纳</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">切尔西</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
           </div>
-        </a>
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">09.12</span>
+              <span class="mc-comp">英超 · 客场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">桑德兰</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">阿森纳</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
+          </div>
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">09.19</span>
+              <span class="mc-comp">英超 · 客场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">布莱顿</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">阿森纳</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
+          </div>
+        </div>
+
+        <!-- 意大利国家队 -->
+        <div class="sched-block">
+          <div class="sched-head sched-italy">
+            <span class="flag-it flag-it-sm"></span>
+            <span>意大利国家队 · 欧国联</span>
+          </div>
+
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">09.25</span>
+              <span class="mc-comp">欧国联 · 主场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">意大利</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">比利时</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
+          </div>
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">09.28</span>
+              <span class="mc-comp">欧国联 · 客场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">土耳其</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">意大利</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
+          </div>
+          <div class="match-card">
+            <div class="mc-info">
+              <span class="mc-date">10.02</span>
+              <span class="mc-comp">欧国联 · 客场</span>
+            </div>
+            <div class="mc-mid">
+              <span class="mc-team">法国</span>
+              <span class="mc-vs">VS</span>
+              <span class="mc-team">意大利</span>
+            </div>
+            <span class="mc-badge mc-up">待赛</span>
+          </div>
+
+          <p class="sched-note">✍️ 欧国联 9 月下旬开赛，赛果陆续更新中</p>
+        </div>
       </div>
     </div>
   </section>
@@ -172,7 +237,7 @@
       <div class="section-head section-head-light">
         <span class="section-no">02</span>
         <div>
-          <h2 class="section-title">采访</h2>
+          <h2 class="section-title">视频</h2>
           <p class="section-sub">视频采访在线观看 · 点击封面播放 · 附中文文字稿</p>
         </div>
       </div>
