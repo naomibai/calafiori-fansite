@@ -12,11 +12,11 @@
   font-display: swap;
 }
 
-/* 手写英文字体：Caveat（可爱手写风） */
+/* 手写英文字体：Hooey（用户选定，仅供个人使用，非商用） */
 @font-face {
-  font-family: 'Caveat';
-  src: url('assets/fonts/caveat.woff2') format('woff2');
-  font-weight: 400 700;
+  font-family: 'Hooey';
+  src: url('assets/fonts/hooey.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -200,17 +200,17 @@ section { scroll-margin-top: 84px; }
 .hero-left { padding-bottom: 20px; }
 
 .hero-first {
-  font-family: 'Caveat', cursive;
+  font-family: 'Hooey', 'Caveat', cursive;
   font-size: clamp(26px, 2.6vw, 44px);
   line-height: 1;
   color: var(--red);
 }
 
 .hero-name {
-  font-family: 'Caveat', cursive;
+  font-family: 'Hooey', 'Caveat', cursive;
   font-size: clamp(44px, 8vw, 132px);
-  line-height: .95;
-  font-weight: 700;
+  line-height: 1.1; /* Hooey 有长升部/降部，行高放宽防止裁切 */
+  font-weight: 400; /* Hooey 只有常规字重，避免伪粗体变形 */
   color: #3B2A26; /* 暖棕，可爱手写风 */
   margin-top: 4px;
 }
@@ -256,7 +256,7 @@ section { scroll-margin-top: 84px; }
 
 /* 俱乐部标签：手写贴纸感，微旋转摆放；点击平滑定位到图库对应时期 */
 .club-tag {
-  font-family: 'Caveat', cursive;
+  font-family: 'Hooey', 'Caveat', cursive;
   font-size: clamp(24px, 2.2vw, 36px);
   line-height: 1;
   color: var(--red);
@@ -318,7 +318,7 @@ section { scroll-margin-top: 84px; }
   position: absolute;
   top: -30px;
   left: -20px;
-  font-family: 'Caveat', cursive;
+  font-family: 'Hooey', 'Caveat', cursive;
   font-size: 23px;
   color: var(--red);
   white-space: nowrap;
