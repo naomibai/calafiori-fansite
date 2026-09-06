@@ -27,34 +27,53 @@
     </div>
   </header>
 
-  <!-- ==================== 1. 全屏首页 Hero ==================== -->
+  <!-- ==================== 1. 首页 Hero（奶油底可爱手写风） ==================== -->
   <section class="hero" id="hero">
-    <!-- ★ 视频背景：把你的视频文件改名为 hero.mp4，放进 assets/video/ 文件夹即可自动播放 -->
-    <!--    没有视频文件时，会自动显示右侧的海报照片，不影响浏览 -->
-    <div class="hero-media">
-      <div class="hero-fallback" id="hero-fallback"></div>
-      <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto"
-             poster="assets/img/arsenal/arsenal-01.jpg">
-        <source src="assets/video/hero.mp4" type="video/mp4">
-      </video>
+    <!-- 可爱风装饰元素（大虚线圆、红点、星星爱心） -->
+    <div class="hero-deco" aria-hidden="true">
+      <span class="deco-circle"></span>
+      <span class="deco-dot deco-dot-1"></span>
+      <span class="deco-dot deco-dot-2"></span>
+      <span class="deco-dot deco-dot-3"></span>
+      <span class="deco-star">✦</span>
+      <span class="deco-heart">♥</span>
     </div>
-    <!-- 左侧文字区与右侧人物之间的柔和过渡 -->
-    <div class="hero-overlay"></div>
-    <!-- 背景装饰：巨大的 33 号水印 -->
-    <div class="hero-watermark" aria-hidden="true">33</div>
 
     <div class="container hero-content">
-      <p class="hero-kicker">RICCARDO</p>
-      <!-- ★ 下面几行（主标题、英文副标题、中文名、标语）的文字都可以随意修改 -->
-      <h1 class="hero-name">CALAFIORI</h1>
-      <p class="hero-sub-en">From Rome to the world.</p>
-      <p class="hero-name-cn">卡拉菲奥里</p>
-      <p class="hero-slogan">钢铁防线 · 红白之魂</p>
-      <a href="#career" class="hero-cta">走进他的故事 ↓</a>
+      <!-- 左侧：名字 + 个人资料 + 俱乐部之旅标签 -->
+      <div class="hero-left">
+        <p class="hero-first">Riccardo</p>
+        <h1 class="hero-name">Calafiori</h1>
+        <p class="hero-name-cn">卡拉菲奥里</p>
+
+        <!-- ★ 个人资料（文字可随意修改） -->
+        <ul class="hero-profile">
+          <li><span class="pf-icon">🎂</span>2002.05.19 · 意大利罗马</li>
+          <li><span class="pf-icon">⚽</span>左后卫 / 中后卫</li>
+          <li><span class="pf-icon">👕</span>阿森纳 33 号 · 左脚</li>
+        </ul>
+
+        <!-- ★ 俱乐部之旅标签：点击自动定位到图库对应时期的照片合集 -->
+        <p class="hero-clubs-title">club journey · 俱乐部之旅</p>
+        <div class="hero-clubs">
+          <a class="club-tag" href="#gallery-roma">roma</a>
+          <a class="club-tag" href="#gallery-basel">basel</a>
+          <a class="club-tag" href="#gallery-bologna">bologna</a>
+          <a class="club-tag" href="#gallery-arsenal">arsenal</a>
+        </div>
+      </div>
+
+      <!-- 右侧：AI 抠图人物切片 + 身高标尺 -->
+      <div class="hero-figure">
+        <!-- ★ 人物切片图：AI 抠图生成，有两个候选：
+             calafiori-cutout.webp（当前使用）和 calafiori-cutout-b.webp（备选），
+             想换就把上面文件名改成另一个；想用新图就放进 assets/img/ 后改 src -->
+        <img class="hero-cutout" src="assets/img/calafiori-cutout.webp" alt="卡拉菲奥里人物立牌">
+        <div class="height-ruler" aria-hidden="true">
+          <span class="hr-text">1.88m</span>
+        </div>
+      </div>
     </div>
-    <!-- 底部角落的小字信息（不抢主体，可改） -->
-    <p class="hero-info">意大利国脚 · 阿森纳 33 号 · 左后卫</p>
-    <div class="hero-stripes"></div>
   </section>
 
   <!-- ==================== 2. 个人经历（按转会时期分类） ==================== -->
