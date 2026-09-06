@@ -1016,7 +1016,6 @@ section { scroll-margin-top: 84px; }
   .section-no { font-size: 46px; }
   .section-title { font-size: 24px; letter-spacing: 6px; }
   .section-sub { font-size: 14px; }
-  .career-grid { grid-template-columns: 1fr; gap: 20px; }
   .photo-grid { grid-template-columns: 1fr; gap: 18px; }
   .gallery-group { margin-bottom: 56px; }
   .group-head h3 { font-size: 20px; letter-spacing: 2px; }
